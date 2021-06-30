@@ -1,0 +1,31 @@
+﻿  console.cpp
+  controller.cpp
+  main.cpp
+  repository.cpp
+  tests.cpp
+  Running Code Analysis for C/C++...
+  Generating Code...
+  IchiriereFilme.vcxproj -> D:\Facultate\Semestrul 2\POO\IchiriereFilme\Debug\IchiriereFilme.exe
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\console.cpp(12): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\console.cpp(13): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\console.cpp(14): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\console.cpp(15): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\main.cpp(18): warning C26496: The variable 'cons' does not change after construction, mark it as const (con.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\repository.cpp(23): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\repository.cpp(24): warning C26486: Don't pass a pointer that may be invalid to a function. Parameter 0 '(24's result)' in call to 'std::vector<Movie,std::allocator<Movie> >::erase' may be invalid (lifetime.3).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(21): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(22): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(23): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(24): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(36): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(37): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(38): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(39): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(61): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(62): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(63): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(64): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(76): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(77): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(78): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\tests.cpp(79): warning C26446: Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).

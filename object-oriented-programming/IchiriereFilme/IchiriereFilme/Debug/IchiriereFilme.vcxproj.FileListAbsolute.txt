@@ -1,0 +1,2 @@
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\Debug\IchiriereFilme.exe.lastcodeanalysissucceeded
+D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\Debug\NativeCodeAnalysis.read.1.tlog

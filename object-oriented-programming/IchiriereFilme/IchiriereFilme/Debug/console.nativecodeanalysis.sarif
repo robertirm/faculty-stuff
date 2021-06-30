@@ -1,0 +1,237 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26446",
+          "message": {
+            "text": "Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/console.cpp"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 31,
+                  "endLine": 12,
+                  "endColumn": 45
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26446",
+          "message": {
+            "text": "Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/console.cpp"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 31,
+                  "endLine": 13,
+                  "endColumn": 45
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26446",
+          "message": {
+            "text": "Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/console.cpp"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 30,
+                  "endLine": 14,
+                  "endColumn": 44
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26446",
+          "message": {
+            "text": "Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/console.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 39,
+                  "endLine": 15,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.28.29910.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x0085B1C0 -il C:\\Users\\rober\\AppData\\Local\\Temp\\_CL_bf95ce88ast -typedil -f console.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829910 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -nologo -W 4 -WX -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -FoDebug\\console.obj -FdDebug\\vc142.pdb -Gd -analyze:projectdirectory D:\\Facultate\\Semestrul 2\\POO\\IchiriereFilme\\IchiriereFilme -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset coreCpp.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29910\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I D:\\Facultate\\Semestrul 2\\POO\\IchiriereFilme\\IchiriereFilme\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/tests.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "6ab5d74056d30c66509b0c990ff39768"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/tests.h"
+          },
+          "hashes": {
+            "md5": "8f18fe4c258c85521727d70bfe097fde"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/controller.h"
+          },
+          "hashes": {
+            "md5": "28c92c826d3c1db67756142093f9aa77"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/repository.h"
+          },
+          "hashes": {
+            "md5": "d0f543b135dadbec5927b45e91aaaafc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/movie.h"
+          },
+          "hashes": {
+            "md5": "0595a1fd4f9964260179823e65878b2c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/repository.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "6cbf4671a832a7545e4c7617492a8b3c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/main.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "1888c281ba69df8f8da242ea6848886b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/console.h"
+          },
+          "hashes": {
+            "md5": "6eccac9c1d48a0acbf10fc017fdf2ff7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/facultate/semestrul 2/poo/ichirierefilme/ichirierefilme/controller.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "b45b0cdde2dfaaf3f5c53e252915d68c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///D:/Facultate/Semestrul 2/POO/IchiriereFilme/IchiriereFilme/console.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "38b922067382ebf27a91911cb7d2cf73"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[2021-04-20 19:14:25] [info] Start Program:
+Path:"D:\\Facultate\\Semestrul 2\\POO\\IchiriereFilme\\x64\\Debug\\IchiriereFilme.exe"
+Arguments:
+Working directory: "D:\\Facultate\\Semestrul 2\\POO\\IchiriereFilme\\IchiriereFilme\\"
+Modules: Selected: D:\Facultate\Semestrul 2\POO\IchiriereFilme\x64\Debug\IchiriereFilme.exe Excluded: 
+Sources: Selected: D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\rober\AppData\Local\Temp\dsperesi.5vw 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2021-04-20 19:14:25] [info] Module: D:\Facultate\Semestrul 2\POO\IchiriereFilme\x64\Debug\IchiriereFilme.exe is selected because it matches selected pattern: D:\Facultate\Semestrul 2\POO\IchiriereFilme\x64\Debug\IchiriereFilme.exe
+[2021-04-20 19:14:25] [info] ----------------------------------------------------
+[2021-04-20 19:14:25] [info] Coverage binary generated in file: C:\Users\rober\AppData\Local\Temp\dsperesi.5vw
+[2021-04-20 19:14:25] [info] ----------------------------------------------------

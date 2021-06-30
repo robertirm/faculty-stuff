@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>Console::printMovies</FUNCTION>
+    <DECORATED>?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>13</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>Console::printMovies</FUNCTION>
+    <DECORATED>?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>14</LINE>
+      <COLUMN>43</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>Console::printMovies</FUNCTION>
+    <DECORATED>?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>console.cpp</FILENAME>
+      <LINE>15</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>Console::printMovies</FUNCTION>
+    <DECORATED>?printMovies@Console@@QBEXV?$vector@VMovie@@V?$allocator@VMovie@@@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>18</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26496</DEFECTCODE>
+    <DESCRIPTION>The variable 'cons' does not change after construction, mark it as const (con.4).</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>repository.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>Repository::deleteMovie</FUNCTION>
+    <DECORATED>?deleteMovie@Repository@@QAEHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>repository.cpp</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>49</COLUMN>
+    </SFA>
+    <DEFECTCODE>26486</DEFECTCODE>
+    <DESCRIPTION>Don't pass a pointer that may be invalid to a function. Parameter 0 '(24's result)' in call to 'std::vector&lt;Movie,std::allocator&lt;Movie&gt; &gt;::erase' may be invalid (lifetime.3).</DESCRIPTION>
+    <FUNCTION>Repository::deleteMovie</FUNCTION>
+    <DECORATED>?deleteMovie@Repository@@QAEHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+        <FILENAME>repository.cpp</FILENAME>
+        <LINE>24</LINE>
+        <COLUMN>77</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>23</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>36</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>37</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>38</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>39</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testRepository</FUNCTION>
+    <DECORATED>?testRepository@@YAXXZ</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>61</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>62</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>63</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>64</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>76</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>77</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>78</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>D:\Facultate\Semestrul 2\POO\IchiriereFilme\IchiriereFilme\</FILEPATH>
+      <FILENAME>tests.cpp</FILENAME>
+      <LINE>79</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26446</DEFECTCODE>
+    <DESCRIPTION>Prefer to use gsl::at() instead of unchecked subscript operator (bounds.4).</DESCRIPTION>
+    <FUNCTION>testController</FUNCTION>
+    <DECORATED>?testController@@YAXXZ</DECORATED>
+    <FUNCLINE>50</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

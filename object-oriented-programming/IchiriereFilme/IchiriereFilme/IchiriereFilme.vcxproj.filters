@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="UI">
+      <UniqueIdentifier>{e9204d4b-fc7d-4017-b2e3-e72db1faafb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{9e6511b4-0ea3-490e-b039-afe0fe8d70b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{57fd8df8-2008-43f7-b7ac-a102bfdeb748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain">
+      <UniqueIdentifier>{81f76b4d-f14d-45e6-af97-8705086450d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Validation">
+      <UniqueIdentifier>{9def42ee-9fd8-4536-a988-f99bbf647f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Repository">
+      <UniqueIdentifier>{f3dd2ebf-7608-46fe-96b2-f84a72d6b0d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="console.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="movie.cpp">
+      <Filter>Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="repository.cpp">
+      <Filter>Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="controller.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="tests.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="validator.cpp">
+      <Filter>Validation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="console.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="movie.h">
+      <Filter>Domain</Filter>
+    </ClInclude>
+    <ClInclude Include="repository.h">
+      <Filter>Repository</Filter>
+    </ClInclude>
+    <ClInclude Include="controller.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="tests.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="validator.h">
+      <Filter>Validation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testCartFile.csv" />
+    <None Include="myCart.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt" />
+    <Text Include="movies.txt" />
+  </ItemGroup>
+</Project>
