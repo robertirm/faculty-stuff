@@ -1,0 +1,90 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern verif_prim
+     6                                  global e_prim
+     7                                  global aux
+     8                                  
+     9                                  extern exit, printf, scanf               
+    10                                  import exit msvcrt.dll   
+    11                                  import printf msvcrt.dll
+    12                                  import scanf msvcrt.dll 
+    13                                  
+    14                                  segment data use32 class=data
+    15 00000000 00000000<rept>              sir_de_nr times 100 dd 0
+    16 00000190 00000000                    lun dd 0
+    17 00000194 00000000                    aux dd 0
+    18 00000198 00000000                    lun_prime dd 0
+    19 0000019C 4C756E67696D652073-         format_msg1 db "Lungime sirului : ", 0 
+    19 000001A5 6972756C7569203A20-
+    19 000001AE 00                 
+    20 000001AF 256400                      format_decimal db "%d",0
+    21 000001B2 2000                        spatiu db " ",0
+    22 000001B4 00                          temp db 0
+    23 000001B5 00                          e_prim db 0
+    24                                      
+    25                                  ; Se citeste de la tastatura un sir de numere in baza 10. Sa se afiseze numerele prime.
+    26                                  segment code use32 class=code
+    27                                      start:
+    28 00000000 68[9C010000]                    push dword format_msg1
+    29 00000005 FF15[00000000]                  call [printf]
+    30 0000000B 83C404                          add esp, 4*1
+    31                                          
+    32 0000000E 68[90010000]                    push dword lun
+    33 00000013 68[AF010000]                    push dword format_decimal
+    34 00000018 FF15[00000000]                  call [scanf]
+    35 0000001E 83C408                          add esp, 4*2 
+    36                                         
+    37 00000021 8B0D[90010000]                  mov ecx, [lun]
+    38 00000027 BF[00000000]                    mov edi, sir_de_nr
+    39 0000002C FC                              cld
+    40                                          ;jecxz final
+    41                                          loop_citire:
+    42                                              ; citim un numar
+    43 0000002D 60                                  pusha
+    44 0000002E 68[94010000]                        push dword aux
+    45 00000033 68[AF010000]                        push dword format_decimal
+    46 00000038 FF15[00000000]                      call [scanf]
+    47 0000003E 83C408                              add esp,4*2
+    48                                              
+    49 00000041 E8(00000000)                        call verif_prim
+    50                                              
+    51                                              ; daca e prim il stocam
+    52 00000046 61                                  popa
+    53 00000047 A1[94010000]                        mov eax,[aux]
+    54 0000004C 8A1D[B5010000]                      mov bl,[e_prim]
+    55 00000052 80FB01                              cmp bl,1
+    56 00000055 7507                                jne negativ            
+    57 00000057 AB                                  stosd
+    58 00000058 FF05[98010000]                      inc dword [lun_prime]
+    59                                              negativ:
+    60 0000005E C605[B5010000]00                    mov [e_prim], byte 0
+    61                                              
+    62 00000065 E2C6                            loop loop_citire
+    63                                          
+    64                                  
+    65                                          ; afisare numere prime
+    66 00000067 8B0D[98010000]                  mov ecx, [lun_prime]
+    67 0000006D BE[00000000]                    mov esi, sir_de_nr
+    68 00000072 FC                              cld
+    69 00000073 E336                            jecxz final
+    70                                          loop_afisare:
+    71 00000075 AD                                  lodsd
+    72 00000076 890D[B4010000]                      mov [temp],ecx
+    73 0000007C A3[94010000]                        mov [aux],eax
+    74 00000081 FF35[94010000]                      push dword [aux]
+    75 00000087 68[AF010000]                        push dword format_decimal
+    76 0000008C FF15[00000000]                      call [printf]
+    77 00000092 83C408                              add esp , 4*2
+    78                                              
+    79 00000095 68[B2010000]                        push dword spatiu
+    80 0000009A FF15[00000000]                      call [printf]
+    81 000000A0 83C404                              add esp, 4
+    82                                              
+    83 000000A3 8B0D[B4010000]                      mov ecx ,[temp]
+    84 000000A9 E2CA                            loop loop_afisare
+    85                                          
+    86                                      final:
+    87 000000AB 6A00                            push    dword 0      
+    88 000000AD FF15[00000000]                  call    [exit]       

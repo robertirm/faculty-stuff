@@ -1,0 +1,63 @@
+     1                                  bits 32 
+     2                                  global start        
+     3                                  
+     4                                  extern exit, printf, scanf               
+     5                                  import exit msvcrt.dll    
+     6                                  import printf msvcrt.dll
+     7                                  import scanf msvcrt.dll
+     8                                  
+     9                                  segment data use32 class=data
+    10 00000000 6F63746574203D2000          mesaj1 db "octet = ", 0
+    11 00000009 637576616E74203D20-         mesaj2 db "cuvant = ", 0
+    11 00000012 00                 
+    12 00000013 256400                      format1 db "%d", 0
+    13 00000016 256400                      format2 db "%d", 0
+    14 00000019 444100                      rez1 db "DA", 0
+    15 0000001C 4E5500                      rez2 db "NU", 0
+    16 0000001F 00                          oct db 0
+    17 00000020 6604                        cuv dw 466h
+    18                                      
+    19                                  
+    20                                  segment code use32 class=code
+    21                                      start:
+    22 00000000 68[00000000]                    push dword mesaj1
+    23 00000005 FF15[00000000]                  call [printf]
+    24 0000000B 83C404                          add esp, 4*1
+    25                                          
+    26 0000000E 68[1F000000]                    push dword oct
+    27 00000013 68[13000000]                    push dword format1
+    28 00000018 FF15[00000000]                  call [scanf]
+    29 0000001E 83C408                          add esp, 4*2
+    30                                          
+    31 00000021 68[09000000]                    push dword mesaj2
+    32 00000026 FF15[00000000]                  call [printf]
+    33 0000002C 83C404                          add esp, 4*1
+    34                                          
+    35 0000002F 68[20000000]                    push dword cuv
+    36 00000034 68[16000000]                    push dword format2
+    37 00000039 FF15[00000000]                  call [scanf]
+    38 0000003F 83C408                          add esp, 4*2
+    39                                          
+    40 00000042 B909000000                      mov ecx,9 
+    41 00000047 A1[20000000]                    mov eax,[cuv]
+    42                                          repeta:
+    43 0000004C 3A05[1F000000]                      cmp al,[oct]
+    44 00000052 7414                                jz afirmativ
+    45 00000054 D1E8                                shr eax,1
+    46 00000056 E2F4                            loop repeta
+    47                                          
+    48 00000058 68[1C000000]                    push dword rez2
+    49 0000005D FF15[00000000]                  call [printf]
+    50 00000063 83C404                          add esp,4*1
+    51 00000066 EB10                            jmp final
+    52                                          
+    53                                          afirmativ:
+    54 00000068 68[19000000]                        push dword rez1
+    55 0000006D FF15[00000000]                      call [printf]
+    56 00000073 83C404                              add esp,4*1
+    57 00000076 EB00                                jmp final
+    58                                              
+    59                                           
+    60                                      final:    
+    61 00000078 6A00                            push    dword 0      
+    62 0000007A FF15[00000000]                  call    [exit]       

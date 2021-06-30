@@ -1,0 +1,22 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                                            
+     8                                  
+     9                                  segment data use32 class=data
+    10                                  
+    11                                  ; 16/4
+    12                                  segment code use32 class=code
+    13                                      start:
+    14 00000000 B800000000                      mov eax, 0
+    15 00000005 BB00000000                      mov ebx, 0      ; curatam eax si ebx
+    16                                          
+    17                                          
+    18 0000000A 66B81000                        mov ax, 16    ; AX = 16    
+    19 0000000E B304                            mov bl, 4     ; BL = 4
+    20 00000010 F6F3                            div bl        ; AL = 16/4 = 4  ,  AH = 0(restul)
+    21                                      
+    22 00000012 6A00                            push    dword 0      

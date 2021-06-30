@@ -1,0 +1,77 @@
+     1                                  bits 32 
+     2                                  global start       
+     3                                   
+     4                                  extern exit, fopen, fclose, fprintf              
+     5                                  import exit msvcrt.dll    
+     6                                  import fopen msvcrt.dll  
+     7                                  import fclose msvcrt.dll
+     8                                  import fprintf msvcrt.dll
+     9                                                          
+    10                                  segment data use32 class=data
+    11 00000000 73756D612E74787400          fisier db "suma.txt",0
+    12 00000009 FFFFFFFF                    descriptor dd -1
+    13 0000000D 7700                        mod_acces db "w",0
+    14 0000000F 53756D612063696672-         format db "Suma cifrelor din text este %d",0
+    14 00000018 656C6F722064696E20-
+    14 00000021 746578742065737465-
+    14 0000002A 20256400           
+    15 0000002E 32202B203220652065-         sir db "2 + 2 e egal cu 4 , scadem 3 , mai ramane 1 , foarte simplu",0   ; suma = 12
+    15 00000037 67616C206375203420-
+    15 00000040 2C2073636164656D20-
+    15 00000049 33202C206D61692072-
+    15 00000052 616D616E652031202C-
+    15 0000005B 20666F617274652073-
+    15 00000064 696D706C7500       
+    16                                      len equ $-sir
+    17 0000006A 00                          suma db 0
+    18                                      
+    19                                  ; 19. Se dau in segmentul de date un nume de fisier si un text (poate contine orice tip de caracter). 
+    20                                  ;   Sa se calculeze suma cifrelor din text. 
+    21                                  ;   Sa se creeze un fisier cu numele dat si sa se scrie suma obtinuta in fisier.
+    22                                  
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          ; deschidem fisierul
+    26 00000000 68[0D000000]                    push dword mod_acces
+    27 00000005 68[00000000]                    push dword fisier
+    28 0000000A FF15[00000000]                  call [fopen]
+    29 00000010 83C408                          add esp, 4*2
+    30                                          
+    31 00000013 A3[09000000]                    mov [descriptor], eax
+    32                                          
+    33                                          ; verificam daca fisierul a fost creat
+    34 00000018 83F800                          cmp eax,0
+    35 0000001B 7445                            je final
+    36                                          
+    37                                          ; parcurgem textul caracter cu caracter
+    38 0000001D B93C000000                      mov ecx, len
+    39 00000022 BE[2E000000]                    mov esi, sir
+    40 00000027 E339                            jecxz final
+    41                                          parcurgere:
+    42 00000029 AC                                  lodsb
+    43                                              ; verificam daca caracterul curent este cifra
+    44 0000002A 3C30                                cmp al, '0'
+    45 0000002C 720C                                jb nu_e_cifra
+    46 0000002E 3C39                                cmp al, '9'
+    47 00000030 7708                                ja nu_e_cifra
+    48                                              
+    49                                              ; in caz afirmativ il adunam in suma totala a cifrelor
+    50 00000032 2C30                                sub al, '0'      ; convertim in nr natural
+    51 00000034 0005[6A000000]                      add [suma], al
+    52                                              
+    53                                              nu_e_cifra:  
+    54 0000003A E2ED                            loop parcurgere
+    55                                          
+    56                                          ; scriem suma in fisier
+    57 0000003C FF35[6A000000]                  push dword [suma]
+    58 00000042 68[0F000000]                    push dword format
+    59 00000047 FF35[09000000]                  push dword [descriptor]
+    60 0000004D FF15[00000000]                  call [fprintf]
+    61 00000053 83C40C                          add esp, 4*3
+    62                                          
+    63                                          ; inchidem fisierul
+    64 00000056 FF35[09000000]                  push dword [descriptor]
+    65 0000005C FF15[00000000]                  call [fclose]
+    66                                      final:
+    67 00000062 6A00                            push    dword 0      
+    68 00000064 FF15[00000000]                  call    [exit]       

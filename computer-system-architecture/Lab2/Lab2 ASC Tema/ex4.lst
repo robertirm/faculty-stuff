@@ -1,0 +1,44 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll 
+     7                                     
+     8                                  ;a,b,c - byte, d - word
+     9                                  segment data use32 class=data
+    10 00000000 0A                          a db 10
+    11 00000001 05                          b db 5
+    12 00000002 07                          c db 7
+    13 00000003 C800                        d dw 200
+    14                                      
+    15                                  ;[(10+d)-(a*a-2*b)]/c
+    16                                  segment code use32 class=code
+    17                                      start:
+    18 00000000 B800000000                      mov eax,0
+    19 00000005 BB00000000                      mov ebx,0
+    20 0000000A BA00000000                      mov edx,0
+    21                                          
+    22 0000000F 668305[03000000]0A              add word [d],10      ; d = d + 10 
+    23                                          
+    24 00000017 A0[01000000]                    mov al,[b]           ; AL = b
+    25 0000001C B402                            mov ah,2             ; AH = 2
+    26 0000001E F6E4                            mul ah               ; AX = AH * AL = 2*b
+    27                                          
+    28 00000020 6650                            push ax              
+    29 00000022 665B                            pop bx               ; BX = AX = 2*b
+    30                                          
+    31 00000024 A0[00000000]                    mov al,[a]           ; AL = a
+    32 00000029 F6E0                            mul al               ; AX = AL * AL = a*a
+    33                                          
+    34 0000002B 6629D8                          sub ax,bx            ; AX = AX - BX = a*a - 2*b
+    35                                          
+    36 0000002E 668B15[03000000]                mov dx,[d]           ; DX = d + 10
+    37 00000035 6629C2                          sub dx, ax           ; DX = DX - AX = (10+d)-(a*a-2*b)
+    38                                          
+    39 00000038 6689D0                          mov ax,dx            ; AX = DX = (10+d)-(a*a-2*b)
+    40 0000003B F635[02000000]                  div byte [c]              ; AL = AX/c = [(10+d)-(a*a-2*b)]/c  si AH = AX%c = [(10+d)-(a*a-2*b)]%c
+    41                                          
+    42                                          
+    43 00000041 6A00                            push    dword 0      
+    44 00000043 FF15[00000000]                  call    [exit]       

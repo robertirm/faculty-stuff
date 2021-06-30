@@ -1,0 +1,39 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                                            
+     8                                  ; a,b,c,d - byte
+     9                                  segment data use32 class=data
+    10 00000000 05                          a db 5
+    11 00000001 01                          b db 1
+    12 00000002 06                          c db 6
+    13 00000003 06                          d db 6
+    14                                  
+    15                                  
+    16                                  ;(a+b+b)-(c+d)
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 B800000000                      mov eax , 0
+    20 00000005 BB00000000                      mov ebx , 0
+    21                                      
+    22 0000000A A0[00000000]                    mov al , [a]    ; AL = a
+    23 0000000F 0205[01000000]                  add al , [b]    ; AL = AL + b = a + b
+    24 00000015 0205[01000000]                  add al , [b]    ; AL = AL + b = a + b + b
+    25                                          
+    26 0000001B 8A1D[02000000]                  mov bl, [c]     ; BL = c
+    27 00000021 021D[03000000]                  add bl, [d]     ; BL = BL + d = c + d
+    28                                          
+    29 00000027 28D8                            sub al,bl
+    30                                          
+    31                                          
+    32                                          
+    33                                          
+    34                                          
+    35                                          
+    36                                          
+    37                                          
+    38                                      
+    39 00000029 6A00                            push    dword 0      

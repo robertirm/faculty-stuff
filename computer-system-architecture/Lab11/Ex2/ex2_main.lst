@@ -1,0 +1,57 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit, printf, scanf               
+     6                                  import exit msvcrt.dll
+     7                                  import printf msvcrt.dll 
+     8                                  import scanf msvcrt.dll   
+     9                                                            
+    10                                  segment data use32 class=data
+    11 00000000 00000000                    a dd 0
+    12 00000004 00000000                    b dd 0
+    13 00000008 00000000                    sum dd 0
+    14 0000000C 61203D2000                  msg_a db 'a = ', 0
+    15 00000011 62203D2000                  msg_b db 'b = ', 0
+    16 00000016 256400                      format_r db "%d", 0
+    17 00000019 53756D61203D202564-         format_p db "Suma = %d", 0
+    17 00000022 00                 
+    18                                      
+    19                                      
+    20                                  ; vom calcula suma a doua nr , a+b , citite de la tastatura
+    21                                  segment code use32 class=code
+    22                                  
+    23                                       
+    24                                          
+    25                                      start:
+    26 00000000 68[0C000000]                    push dword msg_a
+    27 00000005 FF15[00000000]                  call [printf]
+    28 0000000B 83C404                          add esp, 4*1
+    29                                          
+    30 0000000E 68[00000000]                    push dword a
+    31 00000013 68[16000000]                    push dword format_r
+    32 00000018 FF15[00000000]                  call [scanf]
+    33 0000001E 83C408                          add esp, 4*2
+    34                                          
+    35 00000021 68[11000000]                    push dword msg_b
+    36 00000026 FF15[00000000]                  call [printf]
+    37 0000002C 83C404                          add esp, 4*1
+    38                                          
+    39 0000002F 68[04000000]                    push dword b
+    40 00000034 68[16000000]                    push dword format_r
+    41 00000039 FF15[00000000]                  call [scanf]
+    42 0000003F 83C408                          add esp, 4*2
+    43                                          
+    44 00000042 A1[00000000]                    mov eax, [a]
+    45 00000047 8B15[04000000]                  mov edx, [b]
+    46                                          call suma_1
+    46          ******************       error: symbol `suma_1' undefined
+    47 0000004D A3[08000000]                    mov [sum], eax 
+    48                                  
+    49 00000052 FF35[08000000]                  push dword [sum]
+    50 00000058 68[19000000]                    push dword format_p
+    51 0000005D FF15[00000000]                  call [printf]
+    52 00000063 83C408                          add esp, 4*2
+    53                                          
+    54 00000066 6A00                            push    dword 0      
+    55 00000068 FF15[00000000]                  call    [exit]       

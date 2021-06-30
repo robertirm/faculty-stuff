@@ -1,0 +1,30 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                  
+     8                                  
+     9                                  ; a - byte , b- word
+    10                                  segment data use32 class=data
+    11 00000000 0A                          a db 10
+    12 00000001 2800                        b dw 40
+    13 00000003 <res 00000004>              c resb 4     ; rezerva o locatie de memorie de 4 octeti pentru c
+    14                                      
+    15                                  ; (b/a *2 + 10 )* b - b * 15
+    16                                  segment code use32 class=code
+    17                                      start:
+    18                                          
+    19                                          
+    20 00000000 B800000000                      MOV EAX, 0   
+    21 00000005 B081                            MOV AL,81h
+    22 00000007 B4FF                            mov ah,0FFh
+    23 00000009 B380                            mov bl , 80h
+    24 0000000B F6FB                            idiv bl
+    25 0000000D 88E0                            mov al,ah
+    26 0000000F 6698                            cbw
+    27 00000011 98                              cwde
+    28                                          
+    29 00000012 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    30 00000014 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

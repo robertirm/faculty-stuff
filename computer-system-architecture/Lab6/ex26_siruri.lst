@@ -1,0 +1,43 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                                      
+     8                                  segment data use32 class=data
+     9 00000000 785634124D3C2B1A76-         s dd 12345678h, 1A2B3C4Dh, 0FE98DC76h
+     9 00000009 DC98FE             
+    10                                      len equ ($-s)/4
+    11 0000000C 0A                          zece db 10 
+    12 0000000D 00<rept>                    d times len db 0
+    13                                     
+    14                                  ; 26 . Se da un sir de dublucuvinte. Sa se obtina sirul format din octetii superiori 
+    15                                  ; ai cuvintelor inferioare din elementele sirului de dublucuvinte, care sunt multiplii de 10.
+    16                                      
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 B903000000                      mov ecx,len     
+    20 00000005 E322                            jecxz final
+    21 00000007 BE[00000000]                    mov esi, s      ;sirul sursa
+    22 0000000C BF[0D000000]                    mov edi, d      ;sirul destinatie
+    23 00000011 FC                              cld             ;parcurgem de la stanga la dreapta
+    24                                          
+    25                                          repeta:
+    26 00000012 AD                                  lodsd       ; in EAX avem cuvantul inferior
+    27 00000013 66C1E808                            shr ax,8    ; mutam bitii cu 8 pozitii spre dreapta
+    28                                              
+    29 00000017 88C3                                mov bl,al   ; memoram octetul de care avem nevoie
+    30 00000019 F635[0C000000]                      div byte[zece]  
+    31 0000001F 80FC00                              cmp ah, 0       ; verificam daca e multiplu de 10
+    32 00000022 7503                                jnz nu_e_multiplu
+    33                                              
+    34 00000024 88D8                                mov al,bl       ;in caz afirmativ in adaugam in sirul destinatie
+    35 00000026 AA                                  stosb
+    36                                             
+    37                                              nu_e_multiplu:
+    38 00000027 E2E9                            loop repeta
+    39                                      
+    40                                      final:
+    41 00000029 6A00                            push    dword 0      
+    42 0000002B FF15[00000000]                  call    [exit]       

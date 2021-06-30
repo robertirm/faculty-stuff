@@ -1,0 +1,38 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit,printf,scanf               
+     6                                  import exit msvcrt.dll    
+     7                                  import printf msvcrt.dll
+     8                                  import scanf msvcrt.dll
+     9                                  
+    10                                  segment data use32 class=data
+    11 00000000 52657A756C74617475-       mesaj db "Rezultatul este: %d", 0
+    11 00000009 6C20657374653A2025-
+    11 00000012 6400               
+    12                                    
+    13                                  segment code use32 class=code
+    14                                      procedura:
+    15 00000000 8B442404                        mov eax, [esp+4]
+    16                                          ;...
+    17 00000004 2B442408                        sub eax,[esp+8]
+    18 00000008 C3                              ret
+    19                                        
+    20                                      start:
+    21 00000009 8B442408                         mov eax,[esp+8]
+    22                                           ;...
+    23 0000000D BB0F000000                       mov ebx,0xF
+    24                                           ;...
+    25 00000012 53                               push dword ebx
+    26 00000013 50                               push dword eax
+    27 00000014 E8E7FFFFFF                       call procedura
+    28 00000019 50                               push dword eax
+    29 0000001A 68[00000000]                     push dword mesaj
+    30 0000001F FF15[00000000]                   call [printf]
+    31                                           ;...
+    32 00000025 83C408                           add esp, 4*2
+    33                                              
+    34                                          done:
+    35                                         
+    36                                      

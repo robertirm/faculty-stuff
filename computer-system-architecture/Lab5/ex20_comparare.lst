@@ -1,0 +1,48 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                  
+     8                                  segment data use32 class=data
+     9 00000000 02010303040206              a db 2, 1, 3, 3, 4, 2, 6
+    10                                      len_a equ $-a
+    11 00000007 040507060201                b db 4, 5, 7, 6, 2, 1
+    12                                      len_b equ $-b
+    13 0000000D 00<rept>                    r times len_a+len_b db 0
+    14                                      
+    15                                  ; Se dau 2 siruri de octeti A si B. Sa se construiasca sirul R care sa contina elementele lui B in ordine inversa urmate de elementele pare ale lui A.
+    16                                  ; Exemplu:
+    17                                  ; A: 2, 1, 3, 3, 4, 2, 6
+    18                                  ; B: 4, 5, 7, 6, 2, 1
+    19                                  ; R: 1, 2, 6, 7, 5, 4, 2, 4, 2, 6
+    20                                  
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 B906000000                      mov ecx , len_b
+    24 00000005 BE00000000                      mov esi,0
+    25 0000000A E32D                            jecxz final
+    26                                          repeta:
+    27 0000000C 8A81[06000000]                      mov al,[b+ecx-1]
+    28 00000012 8886[0D000000]                      mov [r+esi],al
+    29 00000018 46                                  inc esi
+    30 00000019 E2F1                            loop repeta
+    31                                          
+    32 0000001B B907000000                      mov ecx, len_a
+    33 00000020 BF00000000                      mov edi, 0
+    34                                          repeta2:
+    35 00000025 8A87[00000000]                      mov al,[a+edi]
+    36 0000002B A801                                test al,1
+    37 0000002D 7F07                                jg este_impar
+    38 0000002F 8886[0D000000]                      mov [r+esi],al
+    39 00000035 46                                  inc esi
+    40                                              este_impar:
+    41 00000036 47                                      inc edi
+    42 00000037 E2EC                            loop repeta2
+    43                                              
+    44                                          
+    45                                          
+    46                                      final:    
+    47 00000039 6A00                            push    dword 0      
+    48 0000003B FF15[00000000]                  call    [exit]       

@@ -1,0 +1,42 @@
+     1                                  bits 32 
+     2                                  global start        
+     3                                  
+     4                                  extern exit, printf               
+     5                                  import exit msvcrt.dll    
+     6                                  import printf msvcrt.dll
+     7                                  
+     8                                  segment data use32 class=data
+     9 00000000 3D00                        a dw 61
+    10 00000002 0700                        b dw 7
+    11 00000004 00000000                    cat dd 0
+    12 00000008 00000000                    rst dd 0
+    13 0000000C 436174203D2025692C-         format db "Cat = %i, rest = %i", 0
+    13 00000015 2072657374203D2025-
+    13 0000001E 6900               
+    14                                      
+    15                                  ; 5. Se dau doua numere naturale a si b (a, b: word, definite in segmentul de date). 
+    16                                  ; Sa se calculeze a/b si sa se afiseze catul si restul impartirii in urmatorul format: "Cat = <cat>, rest = <rest>"
+    17                                  ; Exemplu: pentru a=23 si b=10 se va afisa: "Cat = 2, rest = 3"
+    18                                  ; Valorile vor fi afisate in format decimal (baza 10) cu semn.
+    19                                  
+    20                                  segment code use32 class=code
+    21                                      start:
+    22                                          
+    23                                          ;realizam impartirea a/b 
+    24 00000000 66A1[00000000]                  mov ax, [a]         
+    25 00000006 6699                            cwd
+    26 00000008 66F73D[02000000]                idiv word [b]       ; AX = catul  , DX = restul
+    27                                          
+    28                                          ;stocam catul si restul in memorie
+    29 0000000F 66A3[04000000]                  mov [cat],ax
+    30 00000015 668915[08000000]                mov [rst],dx
+    31                                          
+    32                                          ;afisam in formatul cerut
+    33 0000001C FF35[08000000]                  push dword [rst]
+    34 00000022 FF35[04000000]                  push dword [cat]
+    35 00000028 68[0C000000]                    push dword format
+    36 0000002D FF15[00000000]                  call [printf]
+    37 00000033 83C40C                          add esp, 4*3
+    38                                          
+    39 00000036 6A00                            push    dword 0      
+    40 00000038 FF15[00000000]                  call    [exit]       

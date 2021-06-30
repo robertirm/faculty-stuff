@@ -1,0 +1,32 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                  
+     8                                  segment data use32 class=data
+     9 00000000 010203040506                s db 1,2,3,4,5,6
+    10                                      len equ $-s
+    11 00000006 00<rept>                    d times len-1 db 0
+    12                                      
+    13                                  ; Se da un sir de octeti S. Sa se construiasca sirul D ale carui elemente reprezinta suma fiecaror doi octeti consecutivi din sirul S.
+    14                                  ; Exemplu:
+    15                                  ; S: 1, 2, 3, 4, 5, 6
+    16                                  ; D: 3, 5, 7, 9, 11
+    17                                  
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 BE00000000                      mov esi,0
+    21 00000005 B905000000                      mov ecx,len-1
+    22 0000000A E315                            jecxz final
+    23                                          repeta:
+    24 0000000C 8A86[00000000]                      mov al,[s+esi]
+    25 00000012 0286[01000000]                      add al,[s+esi+1]
+    26 00000018 8886[06000000]                      mov [d+esi] , al
+    27 0000001E 46                                  inc esi
+    28 0000001F E2EB                            loop repeta
+    29                                      
+    30                                      final:    
+    31 00000021 6A00                            push    dword 0      
+    32 00000023 FF15[00000000]                  call    [exit]       

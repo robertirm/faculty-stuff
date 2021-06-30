@@ -1,0 +1,60 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                                            
+     8                                  
+     9                                  ;Interpretare fara semn
+    10                                  ; a,b-byte; c-word; e-doubleword; x-qword                          
+    11                                  segment data use32 class=data
+    12 00000000 64                          a db 100
+    13 00000001 32                          b db 50
+    14 00000002 0200                        c dw 2
+    15 00000004 0A000000                    e dd 10
+    16 00000008 0500000000000000            x dq 5
+    17                                  
+    18                                  ;(a-b+c*128)/(a+b)+e-x
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 66B88000                        mov ax,128
+    22 00000004 66F725[02000000]                mul word [c]     ; DX:AX = c*128
+    23                                          
+    24 0000000B 6652                            push dx
+    25 0000000D 6650                            push ax
+    26 0000000F 5B                              pop ebx          ; EBX = c*128
+    27                                          
+    28 00000010 A0[00000000]                    mov al,[a]
+    29 00000015 2A05[01000000]                  sub al,[b]       ; AL= a-b
+    30 0000001B B400                            mov ah,0         ; AX= a-b
+    31 0000001D 66BA0000                        mov dx,0         ; DX:AX = a-b
+    32 00000021 6652                            push dx
+    33 00000023 6650                            push ax
+    34 00000025 58                              pop eax          ; EAX = a-b
+    35                                          
+    36 00000026 01D8                            add eax,ebx      ; EAX = a-b+c*128
+    37                                          
+    38 00000028 50                              push eax
+    39 00000029 6658                            pop ax
+    40 0000002B 665A                            pop dx           ; DX:AX = EAX = a-b+c*128       
+    41                                                 
+    42 0000002D 8A1D[00000000]                  mov bl,[a]
+    43 00000033 021D[01000000]                  add bl,[b]       ; BL = a+b
+    44 00000039 B700                            mov bh, 0        ; BX = a+b
+    45                                          
+    46 0000003B 66F7F3                          div bx           ; AX = (DX:AX)/ BX = (a-b+c*128)/(a+b) ,  DX = restul
+    47                                          
+    48 0000003E 66BA0000                        mov dx,0         ; DX:AX = (a-b+c*128)/(a+b)
+    49 00000042 6652                            push dx
+    50 00000044 6650                            push ax
+    51 00000046 58                              pop eax          ; EAX = (a-b+c*128)/(a+b)
+    52                                          
+    53 00000047 0305[04000000]                  add eax,[e]      ; EAX = (a-b+c*128)/(a+b)+e
+    54 0000004D BA00000000                      mov edx,0        ; EDX:EAX = (a-b+c*128)/(a+b)+e      
+    55                                          
+    56 00000052 2B05[08000000]                  sub eax,[x]
+    57 00000058 1B15[0C000000]                  sbb edx,[x+4]    ; EDX:EAX = (a-b+c*128)/(a+b)+e-x
+    58                                          
+    59 0000005E 6A00                            push    dword 0      
+    60 00000060 FF15[00000000]                  call    [exit]       

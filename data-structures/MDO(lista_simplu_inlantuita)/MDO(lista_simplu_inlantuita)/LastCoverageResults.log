@@ -1,0 +1,21 @@
+[2021-04-10 12:43:29] [info] Start Program:
+Path:"D:\\Facultate\\Semestrul 2\\SDA\\MDO(lista_simplu_inlantuita)\\Debug\\MDO(lista_simplu_inlantuita).exe"
+Arguments:
+Working directory: "D:\\Facultate\\Semestrul 2\\SDA\\MDO(lista_simplu_inlantuita)\\MDO(lista_simplu_inlantuita)\\"
+Modules: Selected: D:\Facultate\Semestrul 2\SDA\MDO(lista_simplu_inlantuita)\Debug\MDO(lista_simplu_inlantuita).exe Excluded: 
+Sources: Selected: D:\Facultate\Semestrul 2\SDA\MDO(lista_simplu_inlantuita)\MDO(lista_simplu_inlantuita) Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\rober\AppData\Local\Temp\lswhgh4a.nfa 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2021-04-10 12:43:29] [info] Module: D:\Facultate\Semestrul 2\SDA\MDO(lista_simplu_inlantuita)\Debug\MDO(lista_simplu_inlantuita).exe is selected because it matches selected pattern: D:\Facultate\Semestrul 2\SDA\MDO(lista_simplu_inlantuita)\Debug\MDO(lista_simplu_inlantuita).exe
+[2021-04-10 12:43:30] [info] ----------------------------------------------------
+[2021-04-10 12:43:30] [info] Coverage binary generated in file: C:\Users\rober\AppData\Local\Temp\lswhgh4a.nfa
+[2021-04-10 12:43:30] [info] ----------------------------------------------------

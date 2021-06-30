@@ -1,0 +1,64 @@
+     1                                  bits 32 
+     2                                  global start        
+     3                                  
+     4                                  extern exit               
+     5                                  import exit msvcrt.dll    
+     6                                  
+     7                                  ;ex 19                          
+     8                                  ;Se da un cuvant A. Sa se obtina dublucuvantul B astfel:
+     9                                  ;bitii 28-31 ai lui B sunt 1
+    10                                  ;bitii 24- 25 si 26-27 ai lui B sunt bitii 8-9 ai lui A
+    11                                  ;bitii 20-23 ai lui B sunt bitii 0-3 inversati ca valoare ai lui A ;
+    12                                  ;bitii 16-19 ai lui B sunt biti de 0
+    13                                  ;bitii 0-15 ai lui B sunt identici cu bitii 16-31 ai lui B.
+    14                                  
+    15                                  segment data use32 class=data
+    16 00000000 5775                        a dw 0111010101010111b                  
+    17 00000002 00000000                    b dd 0   ; 1111 0101 1000 0000 1111 0101 1000 0000 / F580F580
+    18                                  
+    19                                  
+    20                                  segment code use32 class=code
+    21                                      start:
+    22 00000000 BB00000000                      mov ebx,0    ; stocam rezultatul in BX
+    23                                          
+    24                                          ; bitii 28-31 ai lui B sunt 1
+    25 00000005 81CB000000F0                    or ebx, 11110000000000000000000000000000b   
+    26                                          
+    27                                          
+    28                                          ;bitii 24- 25 si 26-27 ai lui B sunt bitii 8-9 ai lui A
+    29 0000000B B800000000                      mov eax,0
+    30 00000010 66A1[00000000]                  mov ax,[a]          
+    31 00000016 66250003                        and ax,0000001100000000b   ; izolam 8-9 bitii lui a
+    32 0000001A B110                            mov cl,16
+    33 0000001C D3C0                            rol eax,cl     ; rotim 16 pozitii spre stanga
+    34 0000001E 09C3                            or ebx,eax     
+    35 00000020 B102                            mov cl,2
+    36 00000022 D3C0                            rol eax,cl      ; rotim 2 pozitii spre stanga
+    37 00000024 09C3                            or ebx,eax
+    38                                          
+    39                                          
+    40                                          ;bitii 20-23 ai lui B sunt bitii 0-3 inversati ca valoare ai lui A ;
+    41 00000026 B800000000                      mov eax,0
+    42 0000002B 66A1[00000000]                  mov ax,[a]
+    43 00000031 66F7D0                          not ax                          ;inversam bitii
+    44 00000034 6683E00F                        and ax,0000000000001111b        ; izolam bitii 0-3
+    45 00000038 B114                            mov cl,20
+    46 0000003A D3C0                            rol eax,cl
+    47 0000003C 09C3                            or ebx,eax
+    48                                          
+    49                                          
+    50                                          ;bitii 16-19 ai lui B sunt biti de 0
+    51 0000003E 81E3FFFFF0FF                    and ebx,11111111111100001111111111111111b
+    52                                          
+    53                                          
+    54                                          ;bitii 0-15 ai lui B sunt identici cu bitii 16-31 ai lui B.
+    55 00000044 89D8                            mov eax,ebx
+    56 00000046 250000FFFF                      and eax,11111111111111110000000000000000b    ; izolam bitii 16-31
+    57 0000004B B110                            mov cl,16
+    58 0000004D D3C8                            ror eax,cl          ;rotim 16 pozitii la dreapta
+    59 0000004F 09C3                            or ebx,eax
+    60                                          
+    61 00000051 891D[02000000]                  mov [b] , ebx   
+    62                                          
+    63 00000057 6A00                            push    dword 0      
+    64 00000059 FF15[00000000]                  call    [exit]       
